@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freezeats — Street Food. Anytime. Anywhere.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <!-- Splash screen -->
+  <div id="splash">
+    <div class="splash-logo">Freeze<span>ats</span></div>
+    <div class="splash-tagline">Street Food. Anytime. Anywhere.</div>
+    <div class="splash-food-strip">
+      <span class="splash-food-chip">🍛</span>
+      <span class="splash-food-chip">🥟</span>
+      <span class="splash-food-chip">🍞</span>
+      <span class="splash-food-chip">🧆</span>
+    </div>
+    <div class="splash-bar"><div class="splash-fill"></div></div>
+  </div>
+
+  <!-- Persistent overlays (always in DOM) -->
+  <div id="persistent">
+    <!-- Nav is injected here by nav.js -->
+    <!-- Cart drawer -->
+    <div class="cart-drawer-overlay" id="cart-overlay" onclick="window._cart.close()"></div>
+    <div class="cart-drawer" id="cart-drawer"></div>
+    <!-- Product modal -->
+    <div class="modal-overlay" id="product-modal-overlay" onclick="window._modal.closeOnBg(event)">
+      <div class="product-modal" id="product-modal"></div>
+    </div>
+    <!-- Toast -->
+    <div class="toast" id="global-toast"></div>
+    <!-- Floating cart -->
+    <div class="floating-cart" id="floating-cart" onclick="window._cart.open()">
+      <span class="fc-icon">🛒</span>
+      <span class="fc-text" id="fc-text">0 items</span>
+      <span class="fc-total" id="fc-total">₹0</span>
+    </div>
+    <!-- Mobile drawer overlay -->
+    <div class="mobile-drawer-overlay" id="drawer-overlay" onclick="window._nav.closeDrawer()"></div>
+    <div class="mobile-drawer" id="mobile-drawer"></div>
+  </div>
+
+  <!-- Main app viewport -->
+  <div id="app"></div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
